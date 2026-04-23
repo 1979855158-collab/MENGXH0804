@@ -32,7 +32,7 @@ const projects: Project[] = [
     title: "梦到（꾸며)",
     category: "数字交互体验 (UX Design)",
     description: "基于 AI 视觉与 Web3 技术的梦境社交系统。解决醒后遗忘痛点，集成 AI 可视化与 NFT 版权保护。",
-    image: "mengdao.png",
+    image: "public/mengdao.png",
     detailImages: [
       "mengdao/mengxq2-1.webp",
       "mengdao/mengxq2-2.webp",
@@ -81,7 +81,7 @@ const projects: Project[] = [
     title: "YUNYOU",
     category: "数字交互体验 (UX Design)",
     description: "面向开放世界游戏玩家的 SNS 互助平台。针对组队、健康管理及安全交易的闭环设计。",
-    image: "yunyou/新封面.webp",
+    image: "public/yunyou/新封面.webp",
     detailImages: [
       "yunyou/slide-16_9---10.webp",
       "yunyou/file-cover---1.webp",
@@ -114,7 +114,7 @@ const projects: Project[] = [
     title: "旧时光（죠시광 탕수이)",
     category: "空间叙事 (Spatial Design)",
     description: "韩国首尔紫阳洞传统糖水铺商业空间。融合白橡木与青花瓷元素，实现中式食疗文化的现代化输出。",
-    image: "jsgfm.webp",
+    image: "public/jsgfm.webp",
     detailImages: [
       "jsg.webp"
     ],
@@ -133,7 +133,7 @@ const projects: Project[] = [
     title: "Escort",
     category: "产品设计 (Product Design)",
     description: "阿尔茨海默病患者陪伴与照护系统。机器人硬件与 APP 联动，聚焦安全与健康监测。",
-    image: "escort/escortfm.webp",
+    image: "public/escort/escortfm.webp",
     detailImages: [
       "escort/escort.webp",
       "escort/escortui (1).webp",
@@ -160,7 +160,7 @@ const projects: Project[] = [
     title: "Mosquito Grave",
     category: "产品设计 (Product Design)",
     description: "基于生物模拟原理的公共防蚊设施。通过模拟二氧化碳释放精准防控登革热。",
-    image: "Mosquito Grave/wenzifm.webp",
+    image: "public/Mosquito Grave/wenzifm.webp",
     detailImages: [
       "Mosquito Grave/wenzixq.webp"
     ],
@@ -181,13 +181,13 @@ const activities: Activity[] = [
   {
     title: "留子变厨子",
     description: "你可以怀疑我的学历，但是不能怀疑我的厨艺！",
-    image: "zuofanfm.webp",
+    image: "public/zuofanfm.webp",
     video: "https://v.douyin.com/7Pzn54nR-RQ/"
   },
   {
     title: "没事儿就爱旅点儿游",
     description: "人就应该待在没有天花板的地方。",
-    image: "lvxingfm.webp",
+    image: "public/lvxingfm.webp",
     videos: [
       { title: "新疆旅行", url: "https://v.douyin.com/VvgoRpvBiXc/" },
       { title: "福建旅行", url: "https://v.douyin.com/ZoP0jcP3DP0/" }
@@ -215,9 +215,9 @@ const Navbar = () => {
           MENG<span className="text-accent-red">XH</span>
         </div>
         <div className="hidden md:flex space-x-8 text-[10px] uppercase font-medium tracking-[1px] text-text-sub">
-          <a href="#about" className="hover:text-white transition-colors">ABOUT</a>
-          <a href="#portfolio" className="hover:text-white transition-colors">PORTFOLIO</a>
-          <a href="#beyond" className="hover:text-white transition-colors">MY LIFE</a>
+          <a href="public/#about" className="hover:text-white transition-colors">ABOUT</a>
+          <a href="public/#portfolio" className="hover:text-white transition-colors">PORTFOLIO</a>
+          <a href="public/#beyond" className="hover:text-white transition-colors">MY LIFE</a>
         </div>
       </div>
     </nav>
@@ -258,15 +258,15 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 flex-wrap">
-              <a href="#portfolio" className="inline-flex items-center justify-center bg-white text-black px-8 py-4 rounded-none font-semibold hover:bg-accent-red hover:text-white transition-colors">
+              <a href="public/#portfolio" className="inline-flex items-center justify-center bg-white text-black px-8 py-4 rounded-none font-semibold hover:bg-accent-red hover:text-white transition-colors">
                 探索作品
                 <ArrowRight className="ml-2 w-5 h-5" />
               </a>
-              <a href="#contact" className="inline-flex items-center justify-center border border-border-dark px-8 py-4 rounded-none font-semibold hover:border-text-sub text-[12px] uppercase tracking-[1px] transition-colors">
+              <a href="public/#contact" className="inline-flex items-center justify-center border border-border-dark px-8 py-4 rounded-none font-semibold hover:border-text-sub text-[12px] uppercase tracking-[1px] transition-colors">
                 联系我
               </a>
               <a 
-                href="孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf" 
+                href="public/孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf" 
                 target="_blank"
                 download="孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf"
                 className="inline-flex items-center justify-center border border-border-dark px-8 py-4 rounded-none font-semibold hover:border-text-sub hover:text-white text-[12px] uppercase tracking-[1px] transition-colors group"
@@ -289,7 +289,7 @@ const Hero = () => {
               {/* Overlay tint */}
               <div className="absolute inset-0 bg-accent-red/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
               <img 
-                src="portrait.jpg" 
+                src="public/portrait.jpg" 
                 alt="Meng Xianghao Portrait" 
                 className="w-full h-full object-cover grayscale-[30%] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
               />
@@ -627,7 +627,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col items-start md:items-end">
-            <a href="mailto:mengxianghao@163.com" className="group flex items-center text-[16px] font-medium border-b border-border-dark pb-2 hover:border-accent-red transition-colors mb-6">
+            <a href="public/mailto:mengxianghao@163.com" className="group flex items-center text-[16px] font-medium border-b border-border-dark pb-2 hover:border-accent-red transition-colors mb-6">
               <Mail className="w-5 h-5 mr-3 text-text-sub group-hover:text-accent-red transition-colors" />
               mengxianghao@163.com
             </a>
@@ -653,7 +653,7 @@ const Footer = () => {
                     >
                       <div className="w-32 h-32 md:w-36 md:h-36 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center relative">
                         <img 
-                          src="wechat-qr.jpg" 
+                          src="public/wechat-qr.jpg" 
                           alt="WeChat QR Code" 
                           className="w-full h-full object-cover"
                           onError={(e) => {
