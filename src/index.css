@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@theme {
+  --color-black: #000000;
+  --color-bg-card: #080808;
+  --color-bg-card-hover: #0a0000;
+  
+  --color-text-main: #ffffff;
+  --color-text-bio: #cccccc;
+  --color-text-sub: #888888;
+  --color-text-label: #666666;
+  --color-text-tag: #999999;
+  --color-text-footer: #555555;
+  
+  --color-accent-red: #8B0000;
+  
+  --color-border-dark: #333333;
+  --color-border-light: #222222;
+  
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-display: "Helvetica Neue", Arial, sans-serif;
+}
+
+body {
+  background-color: var(--color-black);
+  color: var(--color-text-main);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #fff, #888);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
