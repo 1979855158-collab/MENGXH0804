@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>孟祥昊 | MENG XIANGHAO - UX/Product Designer</title>
+  <style>
+    /* CSS Variables & Theme */
+    :root {
+      --color-black: #000000;
+      --color-bg-card: #080808;
+      --color-bg-card-hover: #0a0000;
+      --color-border-dark: #333333;
+      --color-border-light: #222222;
+      --color-text-main: #ffffff;
+      --color-text-sub: #888888;
+      --color-text-bio: #cccccc;
+      --color-text-tag: #999999;
+      --color-accent-red: #8B0000;
+      --font-sans: "Helvetica Neue", Arial, sans-serif;
+    }
+
+    /* Reset & Base */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--color-black);
+      color: var(--color-text-main);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    button { background: none; border: none; cursor: pointer; color: inherit; font: inherit; }
+    
+    .container {
+      max-width: 1024px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 50;
+      padding: 24px 0;
+      transition: all 0.3s ease;
+    }
+    nav.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 16px 0;
+      border-bottom: 1px solid var(--color-border-dark);
+    }
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo { font-size: 24px; font-weight: bold; letter-spacing: -0.5px; }
+    .logo span { color: var(--color-accent-red); }
+    .nav-links { display: none; gap: 32px; font-size: 10px; font-weight: 500; letter-spacing: 1px; color: var(--color-text-sub); }
+    @media (min-width: 768px) { .nav-links { display: flex; } }
+    .nav-links a:hover { color: var(--color-text-main); }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 25%; left: 25%;
+      width: 384px; height: 384px;
+      background: var(--color-accent-red);
+      border-radius: 50%;
+      filter: blur(128px);
+      mix-blend-mode: screen;
+      opacity: 0.2;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    @media (min-width: 768px) { .hero-grid { grid-template-columns: 1fr 1fr; } }
+    
+    .hero-label { font-size: 10px; color: var(--color-text-sub); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; display: inline-block; }
+    .hero h1 { font-size: 48px; font-weight: bold; line-height: 1.2; letter-spacing: -1px; margin-bottom: 8px; }
+    @media (min-width: 768px) { .hero h1 { font-size: 64px; } }
+    .hero h1 span { color: var(--color-accent-red); }
+    .hero h2 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--color-text-sub); margin-bottom: 32px; font-weight: normal; }
+    .hero p { font-size: 14px; color: var(--color-text-bio); max-width: 500px; margin-bottom: 48px; }
+    
+    .btn-group { display: flex; flex-wrap: wrap; gap: 16px; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 16px 32px; font-size: 12px; font-weight: 600;
+      letter-spacing: 1px; text-transform: uppercase; transition: all 0.3s;
+    }
+    .btn svg { width: 16px; height: 16px; margin-left: 8px; }
+    .btn-primary { background: white; color: black; }
+    .btn-primary:hover { background: var(--color-accent-red); color: white; }
+    .btn-outline { border: 1px solid var(--color-border-dark); color: var(--color-text-main); }
+    .btn-outline:hover { border-color: var(--color-text-sub); }
+    
+    /* Hero Image */
+    .hero-image-wrapper { display: none; position: relative; width: 100%; max-width: 400px; margin-left: auto; aspect-ratio: 4/5; }
+    @media (min-width: 768px) { .hero-image-wrapper { display: block; } }
+    .hero-image-frame { position: absolute; inset: 0; border: 1px solid var(--color-border-light); transform: translate(16px, 16px); z-index: 0; pointer-events: none; }
+    .hero-image-box { position: relative; width: 100%; height: 100%; border: 1px solid var(--color-border-dark); overflow: hidden; background: var(--color-bg-card); z-index: 1; }
+    .hero-image-box img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(30%); opacity: 0.9; transition: all 0.7s; }
+    .hero-image-box:hover img { filter: grayscale(0); opacity: 1; transform: scale(1.02); }
+
+    /* Sections */
+    section.content { padding: 96px 0; border-top: 1px solid var(--color-border-dark); }
+    .section-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+    .section-title { font-size: 32px; font-weight: 200; letter-spacing: -1px; }
+    @media (min-width: 768px) { .section-title { font-size: 48px; } }
+    .section-title span { color: var(--color-accent-red); }
+    
+    /* About */
+    .about-grid { display: grid; grid-template-columns: 1fr; gap: 64px; }
+    @media (min-width: 1024px) { .about-grid { grid-template-columns: 1fr 3fr; } }
+    .about-label { font-size: 10px; color: var(--color-text-sub); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 32px; display: block; }
+    .about-text { font-size: 14px; color: var(--color-text-bio); margin-bottom: 32px; }
+    .about-lists { display: grid; grid-template-columns: 1fr; gap: 48px; }
+    @media (min-width: 768px) { .about-lists { grid-template-columns: 1fr 1fr; } }
+    .timeline-item { margin-bottom: 20px; }
+    .timeline-date { font-size: 11px; color: var(--color-accent-red); font-weight: 600; margin-bottom: 4px; display: block; }
+    .timeline-title { font-size: 13px; font-weight: 500; display: block; }
+    .timeline-desc { font-size: 13px; font-weight: 500; opacity: 0.6; display: block; }
+
+    .tag { display: inline-block; border: 1px solid var(--color-border-dark); padding: 4px 10px; font-size: 11px; color: var(--color-text-tag); margin: 0 4px 8px 0; transition: all 0.3s; }
+    .tag:hover { border-color: var(--color-accent-red); color: white; }
+
+    /* Portfolio Cards */
+    .portfolio-grid { display: grid; grid-template-columns: 1fr; gap: 24px; }
+    @media (min-width: 768px) { .portfolio-grid { grid-template-columns: 1fr 1fr; } }
+    .card {
+      border: 1px solid var(--color-border-light);
+      background: var(--color-bg-card);
+      padding: 24px;
+      cursor: pointer;
+      display: flex; flex-direction: column;
+      height: 100%;
+      transition: all 0.3s;
+    }
+    .card:hover { border-color: var(--color-accent-red); background: var(--color-bg-card-hover); }
+    .card-cat { font-size: 10px; color: var(--color-accent-red); font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+    .card-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .card-desc { font-size: 12px; color: var(--color-text-sub); margin-bottom: 24px; flex-grow: 1; }
+    .card-img-wrapper {
+      width: 100%; aspect-ratio: 4/3; margin-bottom: 16px;
+      background: #0f0f0f; border: 1px solid var(--color-border-dark);
+      position: relative; overflow: hidden;
+    }
+    .card-img-wrapper img { width: 100%; height: 100%; object-fit: contain; padding: 8px; filter: grayscale(30%); opacity: 0.9; transition: all 0.7s; }
+    .card:hover .card-img-wrapper img { filter: grayscale(0); opacity: 1; transform: scale(1.05); }
+    .card-num { position: absolute; top: 8px; right: 8px; background: rgba(0,0,0,0.8); padding: 2px 8px; font-size: 10px; color: var(--color-text-sub); letter-spacing: 2px; z-index: 10; }
+    .card-action { display: inline-flex; align-items: center; font-size: 10px; color: rgba(255,255,255,0.7); font-weight: bold; text-transform: uppercase; letter-spacing: 1px; margin-top: auto; }
+    .card-action svg { width: 12px; height: 12px; margin-left: 8px; transition: transform 0.3s; }
+    .card:hover .card-action { color: var(--color-accent-red); }
+    .card:hover .card-action svg { transform: translateX(4px); }
+
+    /* Modal */
+    #modal {
+      position: fixed; inset: 0; z-index: 100;
+      background: rgba(0,0,0,0.95); backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center;
+      padding: 16px;
+    }
+    #modal.active { display: flex; }
+    .modal-content {
+      background: var(--color-bg-card); border: 1px solid var(--color-border-dark);
+      width: 100%; max-width: 1024px; height: 90vh; overflow-y: auto;
+      position: relative; display: flex; flex-direction: column;
+    }
+    .modal-close { position: absolute; top: 16px; right: 16px; width: 40px; height: 40px; border-radius: 50%; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; z-index: 50; transition: all 0.3s; }
+    .modal-close:hover { background: var(--color-accent-red); }
+    .modal-hero-img { width: 100%; background: #0f0f0f; border-bottom: 1px solid var(--color-border-dark); padding: 32px; display: flex; justify-content: center; }
+    .modal-hero-img img { max-height: 50vh; object-fit: contain; }
+    .modal-body { padding: 32px; flex-grow: 1; }
+    @media (min-width: 768px) { .modal-body { padding: 64px; } }
+    .modal-body h2 { font-size: 32px; font-weight: 200; letter-spacing: -1px; margin-bottom: 32px; }
+    @media (min-width: 768px) { .modal-body h2 { font-size: 48px; } }
+    .modal-body .full-desc { font-size: 15px; color: var(--color-text-sub); line-height: 2; margin-bottom: 64px; max-width: 800px; }
+    .modal-detail-images { display: flex; flex-direction: column; gap: 48px; }
+    .modal-detail-images img { width: 100%; border: 1px solid var(--color-border-dark); background: #0a0a0a; padding: 16px; }
+
+    /* Footer */
+    footer { padding: 64px 0; border-top: 1px solid var(--color-border-dark); background: black; }
+    .footer-top { display: flex; flex-direction: column; margin-bottom: 64px; gap: 40px; }
+    @media (min-width: 768px) { .footer-top { flex-direction: row; justify-content: space-between; } }
+    .footer-top h2 { font-size: 32px; font-weight: 200; letter-spacing: -1px; margin-bottom: 8px; }
+    .footer-top h2 span { color: var(--color-accent-red); }
+    .footer-contact { display: flex; flex-direction: column; gap: 24px; }
+    .email-link { display: inline-flex; align-items: center; font-size: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--color-border-dark); transition: border-color 0.3s; }
+    .email-link:hover { border-color: var(--color-accent-red); }
+    .footer-bottom { border-top: 1px solid var(--color-border-light); padding-top: 24px; font-size: 11px; color: var(--color-text-sub); letter-spacing: 1px; }
+
+    /* Animations */
+    @keyframes slideUpFade {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideDownFade {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes qrEntry {
+      from { opacity: 0; transform: translateY(10px) scale(0.95); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .animate-up { animation: slideUpFade 0.3s ease-out forwards; }
+    .animate-down { animation: slideDownFade 0.3s ease-out forwards; }
+    .animate-qr { animation: qrEntry 0.3s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    
+    #wechat-qr {
+      position: absolute; bottom: calc(100% + 12px); right: 0; 
+      width: 160px; height: 160px; background: white; 
+      padding: 12px; border-radius: 12px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      z-index: 100; display: none;
+      border: 1px solid #ddd;
+      transform-origin: bottom center;
+    }
+    #wechat-qr img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; }
+    .qr-triangle {
+      position: absolute; top: 100%; right: 20px; 
+      width: 0; height: 0; 
+      border-left: 8px solid transparent; 
+      border-right: 8px solid transparent; 
+      border-top: 8px solid white;
+    }
+
+    /* Custom Scrollbar for Modal */
+    .modal-content::-webkit-scrollbar { width: 8px; }
+    .modal-content::-webkit-scrollbar-track { background: var(--color-bg-card); }
+    .modal-content::-webkit-scrollbar-thumb { background: var(--color-border-dark); }
+    .modal-content::-webkit-scrollbar-thumb:hover { background: var(--color-text-sub); }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="container nav-inner">
+      <div class="logo">MENG<span>XH</span></div>
+      <div class="nav-links">
+        <a href="#about">ABOUT</a>
+        <a href="#portfolio">PORTFOLIO</a>
+        <a href="#beyond">MY LIFE</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="container hero-grid">
+      <div>
+        <span class="hero-label">About</span>
+        <h1>孟祥昊<br><span>MENG</span> XIANGHAO</h1>
+        <h2>UX Designer / 工业设计</h2>
+        <p>以前瞻性视角探索数字交互、物理空间与产品逻辑的边界。</p>
+        <div class="btn-group">
+          <a href="#portfolio" class="btn btn-primary">
+            探索作品
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+          <a href="#contact" class="btn btn-outline">联系我</a>
+          <a href="/孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf" download class="btn btn-outline">
+            下载简历
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          </a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-image-frame"></div>
+        <div class="hero-image-box">
+          <img src="/portrait.jpg" alt="Meng Xianghao Portrait">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="content">
+    <div class="container about-grid">
+      <div>
+        <span class="about-label">About Me</span>
+        <p class="about-text">拥有 7 年韩国设计教育背景，擅长运用 UX 思维解决跨领域体验问题。我坚持“以人为本”的理性推导，致力于平衡技术、美学与真实的人性需求。</p>
+        <span class="about-label" style="margin-bottom: 16px;">Languages</span>
+        <div style="font-size: 11px; color: var(--color-text-sub); display: flex; flex-direction: column; gap: 8px;">
+          <div><span style="color:var(--color-accent-red); margin-right:8px;">></span>中文 (母语)</div>
+          <div><span style="color:var(--color-accent-red); margin-right:8px;">></span>韩语 (精通)</div>
+        </div>
+      </div>
+      
+      <div class="about-lists">
+        <div>
+          <span class="about-label">Education</span>
+          <div class="timeline-item">
+            <span class="timeline-date">2023 - 2026 (预计)</span>
+            <span class="timeline-title">韩国弘益大学 (硕士在读)</span>
+            <span class="timeline-desc">工业设计 / UX方向</span>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-date">2019 - 2023</span>
+            <span class="timeline-title">韩国建国大学 (学士)</span>
+            <span class="timeline-desc">工业设计</span>
+          </div>
+        </div>
+        <div>
+          <span class="about-label">Expertise</span>
+          <div>
+            <span class="tag">Figma</span>
+            <span class="tag">Rhino</span>
+            <span class="tag">KeyShot</span>
+            <span class="tag">Adobe Suite</span>
+            <span class="tag">Midjourney</span>
+            <span class="tag">UX Research</span>
+            <span class="tag">Prototyping</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio" class="content">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">PORTFOLIO <span>/</span> 作品集</h2>
+        <div style="text-align: right; display:none;" id="location-ui">
+          <span class="hero-label" style="margin-bottom: 4px;">Location</span>
+          <div style="font-size:14px;">SEOUL</div>
+        </div>
+      </div>
+      
+      <div class="portfolio-grid" id="portfolio-container">
+        <!-- JS Rendering Area -->
+      </div>
+    </div>
+  </section>
+
+  <!-- My Life Section -->
+  <section id="beyond" class="content">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">MY LIFE <span>/</span> 生活中的我</h2>
+      </div>
+      <div class="portfolio-grid" id="life-container">
+         <!-- JS Rendering Area -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <h2>诚邀创意合作，同时我也在求职全职岗位 <span>/</span></h2>
+          <p style="color: var(--color-text-sub); font-size: 14px;">期待与你相遇，一起做有意义的设计。</p>
+        </div>
+        <div class="footer-contact">
+          <a href="mailto:mengxianghao@163.com" class="email-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; margin-right: 12px; color: var(--color-text-sub);"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            mengxianghao@163.com
+          </a>
+          
+          <div style="position: relative; cursor: pointer; color: var(--color-text-sub); transition: color 0.3s;" 
+               onclick="togglePhone()" id="phone-container">
+            <span id="phone-label" class="animate-in" style="font-size: 14px; font-weight: 500; letter-spacing: 1px;">电话 / PHONE</span>
+            <span id="phone-number" class="animate-in" style="display: none; color: white; font-size: 14px; font-weight: 600; letter-spacing: 2px;">+86 17639107673</span>
+          </div>
+
+          <div style="position: relative;" onmouseover="showQR()" onmouseout="hideQR()">
+            <div style="font-size: 14px; font-weight: 500; letter-spacing: 1px; cursor: pointer; color: var(--color-accent-red);">
+              微信扫码可见 / WECHAT
+            </div>
+            <div id="wechat-qr" class="animate-in">
+              <img src="/wechat-qr.jpg" alt="WeChat QR">
+              <div class="qr-triangle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        语言能力：中文 (母语) / 韩语 (流利)<br><br>
+        生活中的我：热爱生活 / 喜欢烹饪 / 喜欢旅行 / 喜欢游戏
+      </div>
+    </div>
+  </footer>
+
+  <!-- Project Detail Modal -->
+  <div id="modal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 20px; height: 20px;"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+      </button>
+      <div class="modal-hero-img">
+        <img id="modal-img-main" src="" alt="">
+      </div>
+      <div class="modal-body">
+        <div class="card-cat" id="modal-category" style="margin-bottom: 16px;"></div>
+        <h2 id="modal-title"></h2>
+        <div class="full-desc" id="modal-desc"></div>
+        <div class="modal-detail-images" id="modal-details"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- GLOBAL CONFIG ---
+    const CONFIG = {
+      // ✅ 提示：如果在中国无法查看图片，请将 useLocal 设置为 true
+      // 并将所有图片下载至 ./public/images/ 目录下，文件名命名为对应的 ID
+      useLocal: false, 
+      localPath: "./public/images/"
+    };
+
+    /**
+     * 智能路径解析器
+     * 处理原理：如果是本地路径则直接返回
+     */
+    function resolveUrl(idOrPath, isHighRes = false) {
+      if (!idOrPath) return "";
+      // 如果已经是相对路径或完整URL，直接返回
+      if (idOrPath.startsWith("./") || idOrPath.startsWith("/") || idOrPath.startsWith("http")) return idOrPath;
+      
+      // 本地模式：假设文件为 .jpg
+      return `${CONFIG.localPath}${idOrPath}.jpg`;
+    }
+
+    // Navbar Scroll Effect
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if(window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    if (window.innerWidth >= 768) {
+      const locUI = document.getElementById('location-ui');
+      if(locUI) locUI.style.display = 'block';
+    }
+
+    // --- DATA ---
+    const projects = [
+      {
+        title: "梦到（꾸며)",
+        category: "数字交互体验 (UX Design)",
+        description: "基于 AI 视觉与 Web3 技术的梦境社交系统。解决醒后遗忘痛点，集成 AI 可视化与 NFT 版权保护。",
+        image: "/mengdao.png",
+        detailImages: [
+          "/mengdao/mengxq2-1.webp", "/mengdao/mengxq2-2.webp", "/mengdao/mengxq2-3.webp",
+          "/mengdao/mengxq2-4.webp", "/mengdao/mengxq2-5.webp", "/mengdao/mengxq2-6.webp",
+          "/mengdao/mengxq2-7.webp", "/mengdao/mengxq2-8.webp", "/mengdao/mengxq2-9.webp",
+          "/mengdao/mengxq2-10.webp", "/mengdao/mengxq2-11.webp", "/mengdao/mengxq2-12.webp",
+          "/mengdao/mengxq2-13.webp", "/mengdao/mengxq2-14.webp", "/mengdao/mengxq2-15.webp",
+          "/mengdao/mengxq2-16.webp", "/mengdao/mengxq2-17.webp", "/mengdao/mengxq2-18.webp",
+          "/mengdao/mengxq2-19.webp", "/mengdao/mengxq2-20.webp", "/mengdao/mengxq2-21.webp",
+          "/mengdao/mengxq2-22.webp", "/mengdao/mengxq2-23.webp", "/mengdao/mengxq2-24.webp",
+          "/mengdao/mengxq2-25.webp", "/mengdao/mengxq2-26.webp", "/mengdao/mengxq2-27.webp",
+          "/mengdao/mengxq2-28.webp", "/mengdao/mengxq2-29.webp", "/mengdao/mengxq2-30.webp",
+          "/mengdao/mengxq2-31.webp"
+        ],
+        fullDescription: "<p style='margin-bottom: 16px;'>《梦到（꾸며)》是一个基于人工智能视觉生成与 Web3 技术的全新梦境社交系统。在日常生活中，人们常常为醒来后迅速忘却梦境而感到惋惜。这是一个旨在解决“醒后遗忘”痛点的数字体验产品。</p><p>通过整合尖端的 AI 图像生成技术与语音/文字输入，用户可以在醒来的第一时间迅速将梦境残片可视化输出。平台不仅提供生成服务，更通过区块链技术为每一份“梦”的数字艺术作品赋予版权确权保护，打造一个前所未有的潜意识数字流通与情感共鸣空间。</p>"
+      },
+      {
+        title: "YUNYOU",
+        category: "数字交互体验 (UX Design)",
+        description: "面向开放世界游戏玩家的 SNS 互助平台。针对组队、健康管理及安全交易的闭环设计。",
+        image: "/yunyou/新封面.webp",
+        detailImages: [
+          "/yunyou/slide-16_9---10.webp",
+          "/yunyou/file-cover---1.webp",
+          "/yunyou/file-cover---2.webp",
+          "/yunyou/file-cover---3.webp",
+          "/yunyou/file-cover---4.webp",
+          "/yunyou/file-cover---5.webp",
+          "/yunyou/file-cover---6.webp",
+          "/yunyou/file-cover---7.webp",
+          "/yunyou/file-cover---8.webp",
+          "/yunyou/file-cover---9.webp",
+          "/yunyou/file-cover---10.webp",
+          "/yunyou/file-cover---11.webp",
+          "/yunyou/file-cover---12.webp",
+          "/yunyou/file-cover---13.webp",
+          "/yunyou/file-cover---14.webp"
+        ],
+        fullDescription: "<p style='margin-bottom: 16px;'>《YUNYOU》是一个专为开放世界游戏玩家打造的 SNS 互助与社交平台。本系统旨在解决玩家在浩瀚游戏世界中面临的组队困难、虚拟资产交易安全隐患，并关注长时间游玩带来的健康管理问题。</p><p>通过建立一个高信任度的玩家闭环生态，《YUNYOU》整合了智能队友匹配、基于健康数据的防沉迷与护眼提醒，以及由智能合约保障的安全交易功能。致力于为玩家提供一个更加健康、高效、温暖的游戏内支持网络。</p>"
+      },
+      {
+        title: "旧时光（죠시광 탕수이)",
+        category: "空间叙事 (Spatial Design)",
+        description: "韩国首尔紫阳洞传统糖水铺商业空间。融合白橡木与青花瓷元素，实现中式食疗文化的现代化输出。",
+        image: "/jsgfm.webp",
+        detailImages: ["/jsg.webp"],
+        fullDescription: "<p style='margin-bottom: 16px;'>《旧时光（죠시광 탕수이)》是位于韩国首尔紫阳洞的一处传统中式糖水铺商业空间设计。本项目旨在将中国传统的食疗文化通过现代化的空间叙事进行重构与输出，为现代都市人打造一处疗愈身心的落脚点。</p><p>在空间材质上，设计巧妙融合了温暖亲切的白橡木与清冷典雅的青花瓷元素。木质的温度中和了瓷器的冰冷感觉，不仅隐喻了传统与现代的碰撞，更在感官体验上创造出了层次分明、动静相宜的独特氛围感。</p>"
+      },
+      {
+        title: "Escort",
+        category: "产品设计 (Product Design)",
+        description: "阿尔茨海默病患者陪伴与照护系统。机器人硬件与 APP 联动，聚焦安全与健康监测。",
+        image: "/escort/escortfm.webp",
+        detailImages: [
+          "/escort/escort.webp", "/escort/escortui (1).webp", "/escort/escortui (2).webp",
+          "/escort/escortui (3).webp", "/escort/escortui (4).webp", "/escort/escortui (5).webp",
+          "/escort/escortui (6).webp", "/escort/escortui (7).webp", "/escort/escortui (8).webp"
+        ],
+        fullDescription: "<p style='margin-bottom: 16px;'>《Escort》是一个专门为阿尔茨海默病患者群体打造的陪伴与照护系统。该设计巧妙地将智能机器人硬件实体与移动端 APP 进行无缝联动，全方位聚焦于特殊人群在日常生活中的安全保障与健康状况监测。</p><p>在产品理念上，《Escort》致力于探寻技术理性与人文关怀的最佳平衡点。通过非侵入式的日常陪伴、自动化的生命体征数据反馈以及智能化的紧急危险预警机制，它不仅赋予了患者更多独立生活的尊严与安心感，同时也极大地缓解了家属与看护者的精神焦虑和看护压力。</p>"
+      },
+      {
+        title: "Mosquito Grave",
+        category: "产品设计 (Product Design)",
+        description: "基于生物模拟原理的公共防蚊设施。通过模拟二氧化碳释放精准防控登革热。",
+        image: "/Mosquito Grave/wenzifm.webp",
+        detailImages: ["/Mosquito Grave/wenzixq.webp"],
+        fullDescription: "<p style='margin-bottom: 16px;'>《Mosquito Grave》是一款基于前沿生物模拟原理打造的公共防蚊与卫生设施设计。本项目旨在从城市公共健康管理的维度出发，通过环保且高效的物理诱捕手段，精准防控登革热等蚊媒传染病的传播。</p><p>在技术机制上，该设施通过仿生学原理模拟人体呼吸释放微量二氧化碳及热量，持续且安全地吸引蚊虫进入捕杀闭环。设计语言上则追求极简直观与环境融合，使其能在各种城市公共空间（如公园、社区、广场）中静默地发挥作用，构建安全的户外屏障。</p>"
+      }
+    ];
+
+    const activities = [
+      {
+        title: "留子变厨子",
+        description: "你可以怀疑我的学历，但是不能怀疑我的厨艺！",
+        image: "/zuofanfm.webp",
+        videos: [
+          { title: "厨艺展示", url: "https://v.douyin.com/7Pzn54nR-RQ/" }
+        ]
+      },
+      {
+        title: "没事儿就爱旅点儿游",
+        description: "人就应该待在没有天花板的地方。",
+        image: "/lvxingfm.webp",
+        videos: [
+          { title: "新疆旅行", url: "https://v.douyin.com/VvgoRpvBiXc/" },
+          { title: "福建旅行", url: "https://v.douyin.com/ZoP0jcP3DP0/" }
+        ]
+      }
+    ];
+
+    // --- RENDERING LOGIC ---
+    function initPortfolio() {
+      const container = document.getElementById('portfolio-container');
+      if(!container) return;
+      
+      projects.forEach((proj, idx) => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.onclick = () => openModal(idx);
+        
+        const imgUrl = resolveUrl(proj.image);
+
+        card.innerHTML = `
+          <div class="card-cat">${proj.category}</div>
+          <div class="card-title">${proj.title}</div>
+          <div class="card-desc">${proj.description}</div>
+          <div class="card-img-wrapper">
+            <img src="${imgUrl}" alt="${proj.title}" loading="lazy">
+            <div class="card-num">0${idx + 1}</div>
+          </div>
+          <div class="card-action">
+            View Details
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function initLife() {
+      const container = document.getElementById('life-container');
+      if(!container) return;
+      
+      activities.forEach(act => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        const imgUrl = resolveUrl(act.image);
+
+        let videoButtons = '';
+        if (act.videos) {
+          videoButtons = `
+            <div style="position: absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap: 12px; background:rgba(0,0,0,0.5); opacity:0; transition:opacity 0.3s; z-index: 20;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
+               ${act.videos.map(v => `
+                 <a href="${v.url}" target="_blank" style="background:var(--color-accent-red); color:white; padding:8px 16px; border-radius:20px; font-size:12px; font-weight:bold; display:flex; align-items:center; gap:8px;">
+                   <svg style="width:16px; height:16px;" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                   ${v.title}
+                 </a>
+               `).join('')}
+            </div>
+          `;
+        }
+
+        card.innerHTML = `
+          <div class="card-img-wrapper" style="aspect-ratio: 1/1; margin-bottom: 24px;">
+            <img src="${imgUrl}" style="object-fit:cover; padding: 0;" alt="${act.title}" loading="lazy">
+            ${videoButtons}
+          </div>
+          <div class="card-title">${act.title}</div>
+          <div class="card-desc" style="margin-bottom:0;">${act.description}</div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Modal Operations
+    const modal = document.getElementById('modal');
+    function openModal(idx) {
+      const p = projects[idx];
+      const imgUrl = resolveUrl(p.image, true);
+      
+      document.getElementById('modal-img-main').src = imgUrl;
+      document.getElementById('modal-category').innerText = p.category;
+      document.getElementById('modal-title').innerText = p.title;
+      document.getElementById('modal-desc').innerHTML = p.fullDescription || p.description;
+      
+      const detailsContainer = document.getElementById('modal-details');
+      detailsContainer.innerHTML = '';
+      if(p.detailImages) {
+        p.detailImages.forEach(imgId => {
+          const el = document.createElement('img');
+          el.src = resolveUrl(imgId, true);
+          el.loading = "lazy";
+          detailsContainer.appendChild(el);
+        });
+      }
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+      document.getElementById('modal-img-main').src = "";
+      document.getElementById('modal-details').innerHTML = '';
+    }
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    // Footer Toggle Logics
+    let isPhoneVisible = false;
+    function togglePhone() {
+      const label = document.getElementById('phone-label');
+      const number = document.getElementById('phone-number');
+      isPhoneVisible = !isPhoneVisible;
+      
+      if (isPhoneVisible) {
+        label.style.display = 'none';
+        number.style.display = 'block';
+        number.className = 'animate-down';
+      } else {
+        label.style.display = 'block';
+        number.style.display = 'none';
+        label.className = 'animate-up';
+      }
+    }
+
+    function showQR() {
+      const qr = document.getElementById('wechat-qr');
+      qr.style.display = 'block';
+      qr.className = 'animate-qr';
+    }
+
+    function hideQR() {
+      const qr = document.getElementById('wechat-qr');
+      qr.style.display = 'none';
+    }
+
+    // Boot
+    window.onload = () => {
+      initPortfolio();
+      initLife();
+    };
+  </script>
+</body>
+</html>
