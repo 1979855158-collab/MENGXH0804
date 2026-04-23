@@ -1,0 +1,101 @@
+# Query: src
+# ContextLines: 1
+
+26 个结果 - 5 文件
+
+index.html:
+  291          <div class="hero-image-box">
+  292:           <img src="public/portrait.jpg" alt="Meng Xianghao Portrait">
+  293          </div>
+
+  394              <div id="wechat-qr" class="animate-in">
+  395:               <img src="/wechat-qr.jpg" alt="WeChat QR">
+  396                <div class="qr-triangle"></div>
+
+  414        <div class="modal-hero-img">
+  415:         <img id="modal-img-main" src="" alt="">
+  416        </div>
+
+  575            <div class="card-img-wrapper">
+  576:             <img src="${imgUrl}" alt="${proj.title}" loading="lazy">
+  577              <div class="card-num">0${idx + 1}</div>
+
+  612            <div class="card-img-wrapper" style="aspect-ratio: 1/1; margin-bottom: 24px;">
+  613:             <img src="${imgUrl}" style="object-fit:cover; padding: 0;" alt="${act.title}" loading="lazy">
+  614              ${videoButtons}
+
+  628        
+  629:       document.getElementById('modal-img-main').src = imgUrl;
+  630        document.getElementById('modal-category').innerText = p.category;
+
+  638            const el = document.createElement('img');
+  639:           el.src = resolveUrl(imgId, true);
+  640            el.loading = "lazy";
+
+  651        document.body.style.overflow = '';
+  652:       document.getElementById('modal-img-main').src = "";
+  653        document.getElementById('modal-details').innerHTML = '';
+
+native-index.html:
+  175                      <p>基于 AI 视觉与 Web3 技术的梦境社交系统。解决醒后遗忘痛点，集成 AI 可视化与 NFT 版权保护。</p>
+  176:                     <img src="./public/mengdao.png" alt="梦到" onerror="this.src='https://placehold.co/600x400/111/444?text=MengDao'">
+  177                  </div>
+
+  183                      <p>面向开放世界游戏玩家的 SNS 互助平台。针对组队、健康管理及安全交易的闭环设计。</p>
+  184:                     <img src="https://lh3.googleusercontent.com/d/1N1xBmVykVPu09d6en_FGiwFzJsQWtAqp" alt="YUNYOU">
+  185                  </div>
+
+  191                      <p>韩国首尔紫阳洞传统糖水铺商业空间。融合白橡木与青花瓷元素，实现中式食疗文化的现代化输出。</p>
+  192:                     <img src="https://lh3.googleusercontent.com/d/1thKS3FZyjuL0GLiM7Fsy5VOJvxCzpzBg" alt="旧时光">
+  193                  </div>
+
+  199                      <p>阿尔茨海默病患者陪伴与照护系统。机器人硬件与 APP 联动，聚焦安全与健康监测。</p>
+  200:                     <img src="https://lh3.googleusercontent.com/d/1pN8zadYtHhjFWQmFpwiAl1v9eKMK0oNP" alt="Escort">
+  201                  </div>
+
+package-lock.json:
+  2566        "resolved": "https://registry.npmjs.org/lightningcss-linux-arm64-gnu/-/lightningcss-linux-arm64-gnu-1.32.0.tgz",
+  2567:       "integrity": "sha512-0nnMyoyOLRJXfbMOilaSRcLH3Jw5z9HDNGfT/gwCPgaDjnx0i8w7vBzFLFR1f6CMLKF8gVbebmkUN3fa/kQJpQ==",
+  2568        "cpu": [
+
+  5548        "resolved": "https://registry.npmjs.org/lightningcss-linux-arm64-gnu/-/lightningcss-linux-arm64-gnu-1.32.0.tgz",
+  5549:       "integrity": "sha512-0nnMyoyOLRJXfbMOilaSRcLH3Jw5z9HDNGfT/gwCPgaDjnx0i8w7vBzFLFR1f6CMLKF8gVbebmkUN3fa/kQJpQ==",
+  5550        "optional": true
+
+README.md:
+  60  
+  61: 由于项目的轻量化设计，所有的项目和动态信息均在 `src/App.tsx` 中的配置数组中定义。
+  62  
+  63: 1. **修改项目经历**: 在 `src/App.tsx` 中找到 `const projects: Project[] = [...]` 数组。按照接口字段（`title`, `category`, `description`, `image`, `detailImages`, `fullDescription`）更新您的图文数据。
+  64: 2. **修改个人动态**: 在 `src/App.tsx` 中找到 `const activities: Activity[] = [...]` 数组。
+  65: 3. **修改全局暗黑样式**: 样式变量配置在 `src/index.css`，您可以更改 `@theme` 下的颜色值（例如 `--color-accent-red: #8B0000;`）调整网站的基调。
+  66  
+
+src/App.tsx:
+  291                <img 
+  292:                 src="/portrait.jpg" 
+  293                  alt="Meng Xianghao Portrait" 
+
+  390          <img 
+  391:           src={project.image} 
+  392            alt={project.title} 
+
+  491                  <img 
+  492:                   src={selectedProject.image} 
+  493                    alt={selectedProject.title} 
+
+  513                            <img 
+  514:                             src={highResImg} 
+  515                              className="w-full h-auto" 
+
+  556                    <img 
+  557:                     src={activity.image} 
+  558                      alt={activity.title} 
+
+  655                          <img 
+  656:                           src="/wechat-qr.jpg" 
+  657                            alt="WeChat QR Code" 
+
+  659                            onError={(e) => {
+  660:                             (e.target as HTMLImageElement).src = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="%23999" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>';
+  661                              (e.target as HTMLImageElement).className = "w-1/2 h-1/2 opacity-50";
