@@ -32,39 +32,39 @@ const projects: Project[] = [
     title: "梦到（꾸며)",
     category: "数字交互体验 (UX Design)",
     description: "基于 AI 视觉与 Web3 技术的梦境社交系统。解决醒后遗忘痛点，集成 AI 可视化与 NFT 版权保护。",
-    image: "/mengdao.png",
+    image: "mengdao.png",
     detailImages: [
-      "/mengdao/mengxq2-1.webp",
-      "/mengdao/mengxq2-2.webp",
-      "/mengdao/mengxq2-3.webp",
-      "/mengdao/mengxq2-4.webp",
-      "/mengdao/mengxq2-5.webp",
-      "/mengdao/mengxq2-6.webp",
-      "/mengdao/mengxq2-7.webp",
-      "/mengdao/mengxq2-8.webp",
-      "/mengdao/mengxq2-9.webp",
-      "/mengdao/mengxq2-10.webp",
-      "/mengdao/mengxq2-11.webp",
-      "/mengdao/mengxq2-12.webp",
-      "/mengdao/mengxq2-13.webp",
-      "/mengdao/mengxq2-14.webp",
-      "/mengdao/mengxq2-15.webp",
-      "/mengdao/mengxq2-16.webp",
-      "/mengdao/mengxq2-17.webp",
-      "/mengdao/mengxq2-18.webp",
-      "/mengdao/mengxq2-19.webp",
-      "/mengdao/mengxq2-20.webp",
-      "/mengdao/mengxq2-21.webp",
-      "/mengdao/mengxq2-22.webp",
-      "/mengdao/mengxq2-23.webp",
-      "/mengdao/mengxq2-24.webp",
-      "/mengdao/mengxq2-25.webp",
-      "/mengdao/mengxq2-26.webp",
-      "/mengdao/mengxq2-27.webp",
-      "/mengdao/mengxq2-28.webp",
-      "/mengdao/mengxq2-29.webp",
-      "/mengdao/mengxq2-30.webp",
-      "/mengdao/mengxq2-31.webp"
+      "mengdao/mengxq2-1.webp",
+      "mengdao/mengxq2-2.webp",
+      "mengdao/mengxq2-3.webp",
+      "mengdao/mengxq2-4.webp",
+      "mengdao/mengxq2-5.webp",
+      "mengdao/mengxq2-6.webp",
+      "mengdao/mengxq2-7.webp",
+      "mengdao/mengxq2-8.webp",
+      "mengdao/mengxq2-9.webp",
+      "mengdao/mengxq2-10.webp",
+      "mengdao/mengxq2-11.webp",
+      "mengdao/mengxq2-12.webp",
+      "mengdao/mengxq2-13.webp",
+      "mengdao/mengxq2-14.webp",
+      "mengdao/mengxq2-15.webp",
+      "mengdao/mengxq2-16.webp",
+      "mengdao/mengxq2-17.webp",
+      "mengdao/mengxq2-18.webp",
+      "mengdao/mengxq2-19.webp",
+      "mengdao/mengxq2-20.webp",
+      "mengdao/mengxq2-21.webp",
+      "mengdao/mengxq2-22.webp",
+      "mengdao/mengxq2-23.webp",
+      "mengdao/mengxq2-24.webp",
+      "mengdao/mengxq2-25.webp",
+      "mengdao/mengxq2-26.webp",
+      "mengdao/mengxq2-27.webp",
+      "mengdao/mengxq2-28.webp",
+      "mengdao/mengxq2-29.webp",
+      "mengdao/mengxq2-30.webp",
+      "mengdao/mengxq2-31.webp"
     ],
     fullDescription: (
       <>
@@ -81,23 +81,23 @@ const projects: Project[] = [
     title: "YUNYOU",
     category: "数字交互体验 (UX Design)",
     description: "面向开放世界游戏玩家的 SNS 互助平台。针对组队、健康管理及安全交易的闭环设计。",
-    image: "/yunyou/新封面.webp",
+    image: "yunyou/新封面.webp",
     detailImages: [
-      "/yunyou/slide-16_9---10.webp",
-      "/yunyou/file-cover---1.webp",
-      "/yunyou/file-cover---2.webp",
-      "/yunyou/file-cover---3.webp",
-      "/yunyou/file-cover---4.webp",
-      "/yunyou/file-cover---5.webp",
-      "/yunyou/file-cover---6.webp",
-      "/yunyou/file-cover---7.webp",
-      "/yunyou/file-cover---8.webp",
-      "/yunyou/file-cover---9.webp",
-      "/yunyou/file-cover---10.webp",
-      "/yunyou/file-cover---11.webp",
-      "/yunyou/file-cover---12.webp",
-      "/yunyou/file-cover---13.webp",
-      "/yunyou/file-cover---14.webp"
+      "yunyou/slide-16_9---10.webp",
+      "yunyou/file-cover---1.webp",
+      "yunyou/file-cover---2.webp",
+      "yunyou/file-cover---3.webp",
+      "yunyou/file-cover---4.webp",
+      "yunyou/file-cover---5.webp",
+      "yunyou/file-cover---6.webp",
+      "yunyou/file-cover---7.webp",
+      "yunyou/file-cover---8.webp",
+      "yunyou/file-cover---9.webp",
+      "yunyou/file-cover---10.webp",
+      "yunyou/file-cover---11.webp",
+      "yunyou/file-cover---12.webp",
+      "yunyou/file-cover---13.webp",
+      "yunyou/file-cover---14.webp"
     ],
     fullDescription: (
       <>
@@ -114,9 +114,9 @@ const projects: Project[] = [
     title: "旧时光（죠시광 탕수이)",
     category: "空间叙事 (Spatial Design)",
     description: "韩国首尔紫阳洞传统糖水铺商业空间。融合白橡木与青花瓷元素，实现中式食疗文化的现代化输出。",
-    image: "/jsgfm.webp",
+    image: "jsgfm.webp",
     detailImages: [
-      "/jsg.webp"
+      "jsg.webp"
     ],
     fullDescription: (
       <>
@@ -133,17 +133,17 @@ const projects: Project[] = [
     title: "Escort",
     category: "产品设计 (Product Design)",
     description: "阿尔茨海默病患者陪伴与照护系统。机器人硬件与 APP 联动，聚焦安全与健康监测。",
-    image: "/escort/escortfm.webp",
+    image: "escort/escortfm.webp",
     detailImages: [
-      "/escort/escort.webp",
-      "/escort/escortui (1).webp",
-      "/escort/escortui (2).webp",
-      "/escort/escortui (3).webp",
-      "/escort/escortui (4).webp",
-      "/escort/escortui (5).webp",
-      "/escort/escortui (6).webp",
-      "/escort/escortui (7).webp",
-      "/escort/escortui (8).webp"
+      "escort/escort.webp",
+      "escort/escortui (1).webp",
+      "escort/escortui (2).webp",
+      "escort/escortui (3).webp",
+      "escort/escortui (4).webp",
+      "escort/escortui (5).webp",
+      "escort/escortui (6).webp",
+      "escort/escortui (7).webp",
+      "escort/escortui (8).webp"
     ],
     fullDescription: (
       <>
@@ -160,9 +160,9 @@ const projects: Project[] = [
     title: "Mosquito Grave",
     category: "产品设计 (Product Design)",
     description: "基于生物模拟原理的公共防蚊设施。通过模拟二氧化碳释放精准防控登革热。",
-    image: "/Mosquito Grave/wenzifm.webp",
+    image: "Mosquito Grave/wenzifm.webp",
     detailImages: [
-      "/Mosquito Grave/wenzixq.webp"
+      "Mosquito Grave/wenzixq.webp"
     ],
     fullDescription: (
       <>
@@ -181,13 +181,13 @@ const activities: Activity[] = [
   {
     title: "留子变厨子",
     description: "你可以怀疑我的学历，但是不能怀疑我的厨艺！",
-    image: "/zuofanfm.webp",
+    image: "zuofanfm.webp",
     video: "https://v.douyin.com/7Pzn54nR-RQ/"
   },
   {
     title: "没事儿就爱旅点儿游",
     description: "人就应该待在没有天花板的地方。",
-    image: "/lvxingfm.webp",
+    image: "lvxingfm.webp",
     videos: [
       { title: "新疆旅行", url: "https://v.douyin.com/VvgoRpvBiXc/" },
       { title: "福建旅行", url: "https://v.douyin.com/ZoP0jcP3DP0/" }
@@ -266,7 +266,7 @@ const Hero = () => {
                 联系我
               </a>
               <a 
-                href="/孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf" 
+                href="孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf" 
                 target="_blank"
                 download="孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf"
                 className="inline-flex items-center justify-center border border-border-dark px-8 py-4 rounded-none font-semibold hover:border-text-sub hover:text-white text-[12px] uppercase tracking-[1px] transition-colors group"
@@ -289,7 +289,7 @@ const Hero = () => {
               {/* Overlay tint */}
               <div className="absolute inset-0 bg-accent-red/10 mix-blend-multiply opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none"></div>
               <img 
-                src="/portrait.jpg" 
+                src="portrait.jpg" 
                 alt="Meng Xianghao Portrait" 
                 className="w-full h-full object-cover grayscale-[30%] opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
               />
@@ -324,8 +324,8 @@ const About = () => {
             <div className="mb-8">
               <span className="text-[10px] uppercase tracking-[1px] text-text-label mb-4 block">Languages</span>
               <ul className="space-y-2 text-[11px] text-text-sub">
-                <li className="flex items-center"><ChevronRight className="w-3 h-3 text-accent-red mr-2"/> 中文 (母语)</li>
-                <li className="flex items-center"><ChevronRight className="w-3 h-3 text-accent-red mr-2"/> 韩语 (精通)</li>
+                <li className="flex items-center"><ChevronRight className="w-3 h-3 text-accent-red mr-2"> 中文 (母语)</li>
+                <li className="flex items-center"><ChevronRight className="w-3 h-3 text-accent-red mr-2"> 韩语 (精通)</li>
               </ul>
             </div>
           </div>
@@ -653,7 +653,7 @@ const Footer = () => {
                     >
                       <div className="w-32 h-32 md:w-36 md:h-36 bg-gray-100 rounded-lg overflow-hidden flex items-center justify-center relative">
                         <img 
-                          src="/wechat-qr.jpg" 
+                          src="wechat-qr.jpg" 
                           alt="WeChat QR Code" 
                           className="w-full h-full object-cover"
                           onError={(e) => {

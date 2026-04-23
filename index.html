@@ -280,7 +280,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
           </a>
           <a href="#contact" class="btn btn-outline">联系我</a>
-          <a href="public/孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf" download class="btn btn-outline">
+          <a href="孟祥昊_产品体验设计师_韩国弘益大学硕士_2026届应届毕业生.pdf" download class="btn btn-outline">
             下载简历
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
           </a>
@@ -289,7 +289,7 @@
       <div class="hero-image-wrapper">
         <div class="hero-image-frame"></div>
         <div class="hero-image-box">
-          <img src="public/portrait.jpg" alt="Meng Xianghao Portrait">
+          <img src="portrait.jpg" alt="Meng Xianghao Portrait">
         </div>
       </div>
     </div>
@@ -392,7 +392,7 @@
               微信扫码可见 / WECHAT
             </div>
             <div id="wechat-qr" class="animate-in">
-              <img src="public/wechat-qr.jpg" alt="WeChat QR">
+              <img src="wechat-qr.jpg" alt="WeChat QR">
               <div class="qr-triangle"></div>
             </div>
           </div>
@@ -427,9 +427,9 @@
     // --- GLOBAL CONFIG ---
     const CONFIG = {
       // ✅ 提示：如果在中国无法查看图片，请将 useLocal 设置为 true
-      // 并将所有图片下载至 ./public/images/ 目录下，文件名命名为对应的 ID
+      // 并将所有图片下载至 ./images/ 目录下，文件名命名为对应的 ID
       useLocal: false, 
-      localPath: "./public/images/"
+      localPath: "./images/"
     };
 
     /**
@@ -439,7 +439,7 @@
     function resolveUrl(idOrPath, isHighRes = false) {
       if (!idOrPath) return "";
       // 如果已经是相对路径或完整URL，直接返回
-      if (idOrPath.startsWith("./") || idOrPath.startsWith("/") || idOrPath.startsWith("http")) return idOrPath;
+      if (idOrPath.startsWith("./") || idOrPath.startsWith("") || idOrPath.startsWith("http")) return idOrPath;
       
       // 本地模式：假设文件为 .jpg
       return `${CONFIG.localPath}${idOrPath}.jpg`;
@@ -466,19 +466,19 @@
         title: "梦到（꾸며)",
         category: "数字交互体验 (UX Design)",
         description: "基于 AI 视觉与 Web3 技术的梦境社交系统。解决醒后遗忘痛点，集成 AI 可视化与 NFT 版权保护。",
-        image: "public/mengdao.png",
+        image: "mengdao.png",
         detailImages: [
-          "public/mengdao/mengxq2-1.webp", "public/mengdao/mengxq2-2.webp", "public/mengdao/mengxq2-3.webp",
-          "public/mengdao/mengxq2-4.webp", "public/mengdao/mengxq2-5.webp", "public/mengdao/mengxq2-6.webp",
-          "public/mengdao/mengxq2-7.webp", "public/mengdao/mengxq2-8.webp", "public/mengdao/mengxq2-9.webp",
-          "public/mengdao/mengxq2-10.webp", "public/mengdao/mengxq2-11.webp", "public/mengdao/mengxq2-12.webp",
-          "public/mengdao/mengxq2-13.webp", "public/mengdao/mengxq2-14.webp", "public/mengdao/mengxq2-15.webp",
-          "public/mengdao/mengxq2-16.webp", "public/mengdao/mengxq2-17.webp", "public/mengdao/mengxq2-18.webp",
-          "public/mengdao/mengxq2-19.webp", "public/mengdao/mengxq2-20.webp", "public/mengdao/mengxq2-21.webp",
-          "public/mengdao/mengxq2-22.webp", "public/mengdao/mengxq2-23.webp", "public/mengdao/mengxq2-24.webp",
-          "public/mengdao/mengxq2-25.webp", "public/mengdao/mengxq2-26.webp", "public/mengdao/mengxq2-27.webp",
-          "public/mengdao/mengxq2-28.webp", "public/mengdao/mengxq2-29.webp", "public/mengdao/mengxq2-30.webp",
-          "public/mengdao/mengxq2-31.webp"
+          "mengdao/mengxq2-1.webp", "mengdao/mengxq2-2.webp", "mengdao/mengxq2-3.webp",
+          "mengdao/mengxq2-4.webp", "mengdao/mengxq2-5.webp", "mengdao/mengxq2-6.webp",
+          "mengdao/mengxq2-7.webp", "mengdao/mengxq2-8.webp", "mengdao/mengxq2-9.webp",
+          "mengdao/mengxq2-10.webp", "mengdao/mengxq2-11.webp", "mengdao/mengxq2-12.webp",
+          "mengdao/mengxq2-13.webp", "mengdao/mengxq2-14.webp", "mengdao/mengxq2-15.webp",
+          "mengdao/mengxq2-16.webp", "mengdao/mengxq2-17.webp", "mengdao/mengxq2-18.webp",
+          "mengdao/mengxq2-19.webp", "mengdao/mengxq2-20.webp", "mengdao/mengxq2-21.webp",
+          "mengdao/mengxq2-22.webp", "mengdao/mengxq2-23.webp", "mengdao/mengxq2-24.webp",
+          "mengdao/mengxq2-25.webp", "mengdao/mengxq2-26.webp", "mengdao/mengxq2-27.webp",
+          "mengdao/mengxq2-28.webp", "mengdao/mengxq2-29.webp", "mengdao/mengxq2-30.webp",
+          "mengdao/mengxq2-31.webp"
         ],
         fullDescription: "<p style='margin-bottom: 16px;'>《梦到（꾸며)》是一个基于人工智能视觉生成与 Web3 技术的全新梦境社交系统。在日常生活中，人们常常为醒来后迅速忘却梦境而感到惋惜。这是一个旨在解决“醒后遗忘”痛点的数字体验产品。</p><p>通过整合尖端的 AI 图像生成技术与语音/文字输入，用户可以在醒来的第一时间迅速将梦境残片可视化输出。平台不仅提供生成服务，更通过区块链技术为每一份“梦”的数字艺术作品赋予版权确权保护，打造一个前所未有的潜意识数字流通与情感共鸣空间。</p>"
       },
@@ -486,23 +486,23 @@
         title: "YUNYOU",
         category: "数字交互体验 (UX Design)",
         description: "面向开放世界游戏玩家的 SNS 互助平台。针对组队、健康管理及安全交易的闭环设计。",
-        image: "public/yunyou/新封面.webp",
+        image: "yunyou/新封面.webp",
         detailImages: [
-          "public/yunyou/slide-16_9---10.webp",
-          "public/yunyou/file-cover---1.webp",
-          "public/yunyou/file-cover---2.webp",
-          "public/yunyou/file-cover---3.webp",
-          "public/yunyou/file-cover---4.webp",
-          "public/yunyou/file-cover---5.webp",
-          "public/yunyou/file-cover---6.webp",
-          "public/yunyou/file-cover---7.webp",
-          "public/yunyou/file-cover---8.webp",
-          "public/yunyou/file-cover---9.webp",
-          "public/yunyou/file-cover---10.webp",
-          "public/yunyou/file-cover---11.webp",
-          "public/yunyou/file-cover---12.webp",
-          "public/yunyou/file-cover---13.webp",
-          "public/yunyou/file-cover---14.webp"
+          "yunyou/slide-16_9---10.webp",
+          "yunyou/file-cover---1.webp",
+          "yunyou/file-cover---2.webp",
+          "yunyou/file-cover---3.webp",
+          "yunyou/file-cover---4.webp",
+          "yunyou/file-cover---5.webp",
+          "yunyou/file-cover---6.webp",
+          "yunyou/file-cover---7.webp",
+          "yunyou/file-cover---8.webp",
+          "yunyou/file-cover---9.webp",
+          "yunyou/file-cover---10.webp",
+          "yunyou/file-cover---11.webp",
+          "yunyou/file-cover---12.webp",
+          "yunyou/file-cover---13.webp",
+          "yunyou/file-cover---14.webp"
         ],
         fullDescription: "<p style='margin-bottom: 16px;'>《YUNYOU》是一个专为开放世界游戏玩家打造的 SNS 互助与社交平台。本系统旨在解决玩家在浩瀚游戏世界中面临的组队困难、虚拟资产交易安全隐患，并关注长时间游玩带来的健康管理问题。</p><p>通过建立一个高信任度的玩家闭环生态，《YUNYOU》整合了智能队友匹配、基于健康数据的防沉迷与护眼提醒，以及由智能合约保障的安全交易功能。致力于为玩家提供一个更加健康、高效、温暖的游戏内支持网络。</p>"
       },
@@ -510,19 +510,19 @@
         title: "旧时光（죠시광 탕수이)",
         category: "空间叙事 (Spatial Design)",
         description: "韩国首尔紫阳洞传统糖水铺商业空间。融合白橡木与青花瓷元素，实现中式食疗文化的现代化输出。",
-        image: "public/jsgfm.webp",
-        detailImages: ["public/jsg.webp"],
+        image: "jsgfm.webp",
+        detailImages: ["jsg.webp"],
         fullDescription: "<p style='margin-bottom: 16px;'>《旧时光（죠시광 탕수이)》是位于韩国首尔紫阳洞的一处传统中式糖水铺商业空间设计。本项目旨在将中国传统的食疗文化通过现代化的空间叙事进行重构与输出，为现代都市人打造一处疗愈身心的落脚点。</p><p>在空间材质上，设计巧妙融合了温暖亲切的白橡木与清冷典雅的青花瓷元素。木质的温度中和了瓷器的冰冷感觉，不仅隐喻了传统与现代的碰撞，更在感官体验上创造出了层次分明、动静相宜的独特氛围感。</p>"
       },
       {
         title: "Escort",
         category: "产品设计 (Product Design)",
         description: "阿尔茨海默病患者陪伴与照护系统。机器人硬件与 APP 联动，聚焦安全与健康监测。",
-        image: "public/escort/escortfm.webp",
+        image: "escort/escortfm.webp",
         detailImages: [
-          "public/escort/escort.webp", "public/escort/escortui (1).webp", "public/escort/escortui (2).webp",
-          "public/escort/escortui (3).webp", "public/escort/escortui (4).webp", "public/escort/escortui (5).webp",
-          "public/escort/escortui (6).webp", "public/escort/escortui (7).webp", "public/escort/escortui (8).webp"
+          "escort/escort.webp", "escort/escortui (1).webp", "escort/escortui (2).webp",
+          "escort/escortui (3).webp", "escort/escortui (4).webp", "escort/escortui (5).webp",
+          "escort/escortui (6).webp", "escort/escortui (7).webp", "escort/escortui (8).webp"
         ],
         fullDescription: "<p style='margin-bottom: 16px;'>《Escort》是一个专门为阿尔茨海默病患者群体打造的陪伴与照护系统。该设计巧妙地将智能机器人硬件实体与移动端 APP 进行无缝联动，全方位聚焦于特殊人群在日常生活中的安全保障与健康状况监测。</p><p>在产品理念上，《Escort》致力于探寻技术理性与人文关怀的最佳平衡点。通过非侵入式的日常陪伴、自动化的生命体征数据反馈以及智能化的紧急危险预警机制，它不仅赋予了患者更多独立生活的尊严与安心感，同时也极大地缓解了家属与看护者的精神焦虑和看护压力。</p>"
       },
@@ -530,8 +530,8 @@
         title: "Mosquito Grave",
         category: "产品设计 (Product Design)",
         description: "基于生物模拟原理的公共防蚊设施。通过模拟二氧化碳释放精准防控登革热。",
-        image: "public/Mosquito Grave/wenzifm.webp",
-        detailImages: ["public/Mosquito Grave/wenzixq.webp"],
+        image: "Mosquito Grave/wenzifm.webp",
+        detailImages: ["Mosquito Grave/wenzixq.webp"],
         fullDescription: "<p style='margin-bottom: 16px;'>《Mosquito Grave》是一款基于前沿生物模拟原理打造的公共防蚊与卫生设施设计。本项目旨在从城市公共健康管理的维度出发，通过环保且高效的物理诱捕手段，精准防控登革热等蚊媒传染病的传播。</p><p>在技术机制上，该设施通过仿生学原理模拟人体呼吸释放微量二氧化碳及热量，持续且安全地吸引蚊虫进入捕杀闭环。设计语言上则追求极简直观与环境融合，使其能在各种城市公共空间（如公园、社区、广场）中静默地发挥作用，构建安全的户外屏障。</p>"
       }
     ];
@@ -540,7 +540,7 @@
       {
         title: "留子变厨子",
         description: "你可以怀疑我的学历，但是不能怀疑我的厨艺！",
-        image: "public/zuofanfm.webp",
+        image: "zuofanfm.webp",
         videos: [
           { title: "厨艺展示", url: "https://v.douyin.com/7Pzn54nR-RQ/" }
         ]
@@ -548,7 +548,7 @@
       {
         title: "没事儿就爱旅点儿游",
         description: "人就应该待在没有天花板的地方。",
-        image: "public/lvxingfm.webp",
+        image: "lvxingfm.webp",
         videos: [
           { title: "新疆旅行", url: "https://v.douyin.com/VvgoRpvBiXc/" },
           { title: "福建旅行", url: "https://v.douyin.com/ZoP0jcP3DP0/" }
